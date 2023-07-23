@@ -1,4 +1,8 @@
 # manga-auto-downloader
-pyautogui macro
+Macro with pyautogui
 
 `pip install pyautogui`
+
+Run
+
+`python main.py`
