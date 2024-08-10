@@ -1,8 +1,14 @@
-# manga-auto-downloader
-Macro with pyautogui
-
-`pip install pyautogui`
-
-Run
-
-`python main.py`
+# ✨ Manga Auto Downloader
+**pyautogui** Macro
+---
+## 💡 Dependency
+```
+pip install pyautogui
+```
+```
+pip install pyperclip
+```
+## ➡️ Running
+```
+python main.py
+```
