@@ -1,0 +1,16 @@
+ScrollTopX=1908
+ScrollTopY=110
+ScrollBottomX=1908
+ScrollBottomY=1044
+ExtentionX=1734
+ExtentionY=62
+SelectX=1325
+SelectY=232
+FolderX=1393
+FolderY=649
+DownloadX=1682
+DownloadY=647
+NextX=1855
+NextY=995
+delayLoadTime=10
+delayDownloadTime=60
