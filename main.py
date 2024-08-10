@@ -8,9 +8,8 @@ print('Manga Auto Downloader (Ver. 1.1)    제작: YCLK')
 time.sleep(3)
 
 # 저장 안내
-answer = input("저장한 설정 값을 불러오시겠습니까? (Y/N):")
-
-if answer == "N" or "n" : 
+answer = input("저장한 설정 값을 불러오시겠습니까? (Y/N): ")
+if answer == "N" : 
     # 스크롤바 좌표 입력
     time_cnt = 5
 
@@ -20,6 +19,7 @@ if answer == "N" or "n" :
         time.sleep(1)
 
     ScrollTopX, ScrollTopY = pyautogui.position()
+    print(ScrollTopX, ScrollTopY)
     os.system('cls')
 
     # 스크롤바 좌표 입력
@@ -31,6 +31,7 @@ if answer == "N" or "n" :
         time.sleep(1)
 
     ScrollBottomX, ScrollBottomY = pyautogui.position()
+    print(ScrollBottomX, ScrollBottomY)
     os.system('cls')
 
     # 확장 프로그램 좌표 입력
@@ -42,6 +43,7 @@ if answer == "N" or "n" :
         time.sleep(1)
 
     ExtentionX, ExtentionY = pyautogui.position()
+    print(ExtentionX, ExtentionY)
     os.system('cls')
 
     # Select all 체크박스 좌표 입력
@@ -53,6 +55,7 @@ if answer == "N" or "n" :
         time.sleep(1)
 
     SelectX, SelectY = pyautogui.position()
+    print(SelectX, SelectY)
     os.system('cls')
 
     # 폴더 이름 지정 좌표 입력
@@ -64,6 +67,7 @@ if answer == "N" or "n" :
         time.sleep(1)
 
     FolderX, FolderY = pyautogui.position()
+    print(FolderX, FolderY)
     os.system('cls')
 
     # 다운로드 버튼 좌표 입력
@@ -75,6 +79,7 @@ if answer == "N" or "n" :
         time.sleep(1)
 
     DownloadX, DownloadY = pyautogui.position()
+    print(DownloadX, DownloadY)
     os.system('cls')
 
     # 다음화 버튼 좌표 입력
@@ -86,6 +91,7 @@ if answer == "N" or "n" :
         time.sleep(1)
 
     NextX, NextY = pyautogui.position()
+    print(NextX, NextY)
     os.system('cls')
 
     # 이미지 로드 시간 입력
@@ -93,7 +99,8 @@ if answer == "N" or "n" :
 
     # 다운로드 대기 시간 입력
     delayDownloadTime = int(input('이미지 다운로드 대기 시간을 지정해 주세요 (사진이 많을 수록 길게 지정, 20초 권장): '))
-else : 
+
+elif answer == "Y" : 
     loaded_variables = {}
     with open("variables.txt", "r") as file:
         for line in file:
@@ -102,6 +109,23 @@ else :
             if value.isdigit():
                 value = int(value)
             loaded_variables[key] = value
+
+    ScrollTopX = loaded_variables['ScrollTopX']
+    ScrollTopY = loaded_variables['ScrollTopY']
+    ScrollBottomX = loaded_variables['ScrollBottomX']
+    ScrollBottomY = loaded_variables['ScrollBottomY']
+    ExtentionX = loaded_variables['ExtentionX']
+    ExtentionY = loaded_variables['ExtentionY']
+    SelectX = loaded_variables['SelectX']
+    SelectY = loaded_variables['SelectY']
+    FolderX = loaded_variables['FolderX']
+    FolderY = loaded_variables['FolderY']
+    DownloadX = loaded_variables['DownloadX']
+    DownloadY = loaded_variables['DownloadY']
+    NextX = loaded_variables['NextX']
+    NextY = loaded_variables['NextY']
+    delayLoadTime = loaded_variables['delayLoadTime']
+    delayDownloadTime = loaded_variables['delayDownloadTime']
 
 # 만화 제목 입력
 mangaTitle = input('저장할 작품의 이름을 지정해 주세요: ')
@@ -128,8 +152,10 @@ num = 0
 while num < finishChapter:
     num += 1
 
+    time.sleep(3)
+
     pyautogui.moveTo(ScrollTopX, ScrollTopY, duration=0.3)
-    pyautogui.dragTo(ScrollBottomX, ScrollBottomY, duration=5)
+    pyautogui.dragTo(ScrollBottomX, ScrollBottomY, duration=10)
 
     # 확장 프로그램 클릭
     pyautogui.moveTo(ExtentionX, ExtentionY, duration=0.3)
@@ -141,6 +167,7 @@ while num < finishChapter:
         print('로드가 완료될 때까지 ' + str(time_cnt) + '초를 기다립니다')
         time_cnt -= 1
         time.sleep(1)
+        os.system('cls')
     os.system('cls')
 
     # height를 110이상으로
@@ -183,6 +210,7 @@ while num < finishChapter:
         print('다운로드가 완료될 때까지 ' + str(time_cnt) + '초를 기다립니다')
         time_cnt -= 1
         time.sleep(1)
+        os.system('cls')
     os.system('cls')
 
     # 다음화 클릭
